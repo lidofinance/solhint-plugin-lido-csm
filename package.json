@@ -1,15 +1,14 @@
 {
-  "name": "solhint-plugin-defi-wonderland",
-  "version": "1.1.1",
-  "description": "DeFi Wonderland's best practices Solhint plugin",
+  "name": "solhint-plugin-lido-csm",
+  "version": "0.1.0",
+  "description": "A custom Solhint plugin to enforce style guide of CSM team",
   "keywords": [
     "solhint",
     "plugin",
-    "solidity",
-    "wonderland"
+    "solidity"
   ],
   "license": "MIT",
-  "author": "DeFi Wonderland",
+  "author": "Community Staking Team",
   "main": "build/index",
   "types": "build/index",
   "files": [

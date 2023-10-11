@@ -1,31 +1,32 @@
-# DeFi Wonderland's Solhint Plugin
+# Lido Community Staking Module Solhint Plugin
 
-[![image](https://img.shields.io/npm/v/solhint-plugin-defi-wonderland.svg?style=flat-square)](https://www.npmjs.org/package/solhint-plugin-defi-wonderland)
-![Tests](https://github.com/defi-wonderland/solhint-plugin/actions/workflows/unit-tests.yml/badge.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/defi-wonderland/solhint-plugin/blob/main/LICENSE)
+[![image](https://img.shields.io/npm/v/solhint-plugin-lido-csm.svg?style=flat-square)](https://www.npmjs.org/package/solhint-plugin-lido-csm)
+![Tests](https://github.com/lidofinance/solhint-plugin-lido-csm/actions/workflows/unit-tests.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/lidofinance/solhint-plugin-lido-csm/blob/main/LICENSE)
 
 ## Overview
 
-This custom Solhint Plugin aims to contain all of the Solidity best practices implemented at [DeFi Wonderland](https://defi.sucks).
+This custom Solhint Plugin aims to contain all of the Solidity best practices and style guide of Community Staking
+Module team.
 
 ## Setup
 
 [Setup Solhint](TODO) in your Solidity project if you haven't already. Then run:
 
 ```sh
-yarn add -D solhint-plugin-defi-wonderland
+yarn add -D solhint-plugin-lido-csm
 ```
 
 or
 
 ```sh
-npm install --save-dev solhint-plugin-defi-wonderland
+npm install --save-dev solhint-plugin-lido-csm
 ```
 
 Finally, inside your `.solhint.json` configuration file, add:
 
 ```
-"plugins": [..., "defi-wonderland"],
+"plugins": [..., "lido-csm"],
 ```
 
 ## Available Rules
@@ -43,10 +44,6 @@ Finally, inside your `.solhint.json` configuration file, add:
 | `struct-name-camelcase`             | Structs name should be in CamelCase.                                                 |
 | `wonder-var-name-mixedcase`         | Public variables name must be in mixedCase.                                          |
 
----
+## Credits
 
-## About DeFi Wonderland
-
-[DeFi Wonderland](https://defi.sucks) is a team of top Web3 researchers, developers, and operators who believe that the future needs to be open-source, permissionless, and decentralized.
-
-DeFi sucks, but DeFi Wonderland is here to make it better.
+- [DeFi Wonderland](https://defi.sucks)
