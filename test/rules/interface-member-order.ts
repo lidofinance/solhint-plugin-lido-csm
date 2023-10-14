@@ -16,7 +16,7 @@ describe('Linter - interface-member-order', () => {
       `
         error TestError(); error TestError2(); 
         event TestEvent(); event TestEvent2();
-      `
+      `,
     );
     const report = processStr(code, config);
 
@@ -30,7 +30,7 @@ describe('Linter - interface-member-order', () => {
       `
         struct TestStruct { uint256 data; } struct TestStruct2 { uint256 data; }
         error Error(); error Error2();
-      `
+      `,
     );
     const report = processStr(code, config);
 
@@ -44,7 +44,7 @@ describe('Linter - interface-member-order', () => {
       `
         struct TestStruct { uint256 data; } struct TestStruct2 { uint256 data; }
         enum TestEnum { A, B } enum TestEnum2 { A, B }
-      `
+      `,
     );
     const report = processStr(code, config);
     assert.equal(report.errorCount, 1);
@@ -57,7 +57,7 @@ describe('Linter - interface-member-order', () => {
       `
         function testFunction(){} function testFunction2(){}
         struct TestStruct { uint256 data; } struct TestStruct2 { uint256 data; }
-      `
+      `,
     );
     const report = processStr(code, config);
 
@@ -71,7 +71,7 @@ describe('Linter - interface-member-order', () => {
       `
         function testFunction(){} function testFunction2(){} 
         enum TestEnum { A, B } enum TestEnum2 { A, B }
-      `
+      `,
     );
     const report = processStr(code, config);
     assert.equal(report.errorCount, 1);
@@ -87,7 +87,7 @@ describe('Linter - interface-member-order', () => {
         enum TestEnum { A, B } enum TestEnum2 { A, B }
         struct TestStruct { uint256 data; } struct TestStruct2 { uint256 data; }
         function testFunction(){} function testFunction2(){}
-      `
+      `,
     );
     const report = processStr(code, config);
 

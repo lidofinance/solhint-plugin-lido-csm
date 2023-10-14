@@ -53,7 +53,10 @@ export class InterfaceMemberOrderChecker extends BaseChecker implements Rule {
       return unOrderedMember !== orderedMembers[index];
     });
     if (misorderedMember) {
-      this.error(node, `The order of members in the interface ${node.name} interfaces should be: Events, Errors, Enums, Structs, Functions`);
+      this.error(
+        node,
+        `The order of members in the interface ${node.name} interfaces should be: Events, Errors, Enums, Structs, Functions`,
+      );
     }
   }
 }
