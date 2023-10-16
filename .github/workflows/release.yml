@@ -1,3 +1,4 @@
+---
 name: Build, tag, and publish a release
 
 on:
@@ -5,59 +6,34 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  tag:
-    name: Create tag for new version
+  bump:
+    name: Create tag and release
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'chore(release)')"
     outputs:
-      tag_name: ${{ steps.create_new_tag.outputs.tag }}
+      tag: ${{ steps.tag.outputs.tag }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-      - uses: salsify/action-detect-and-tag-new-version@v2
-        id: create_new_tag
-
-  release:
-    name: Create release
-    runs-on: ubuntu-latest
-    needs: tag
-    if: needs.tag.outputs.tag_name
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/create-release@v1
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ needs.tag.outputs.tag_name }}
-          release_name: ${{ needs.tag.outputs.tag_name }}
-          draft: false
-          prerelease: false
-
-  publish:
-    name: Build and publish
-    runs-on: ubuntu-latest
-    needs: tag
-    if: needs.tag.outputs.tag_name
-    steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Install node
-        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-
-      - name: Build
-        run: yarn build
-
-      - name: Publish
-        run: npm publish --access public
+          persist-credentials: false
+      - name: Get tag value
+        id: tag
+        run: |
+          TAG="$(grep -oP '^chore\(release\).*\K(\d+\.\d+\.\d+)' <<< "$MESSAGE")"
+          echo "$TAG"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          MESSAGE: ${{ github.event.head_commit.message }}
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.tag.outputs.tag }}
+          git push https://x-access-token:${{ github.token }}@github.com/$GITHUB_REPOSITORY --tags
+      - name: Create release
+        uses: lidofinance/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}

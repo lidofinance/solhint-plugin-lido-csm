@@ -81,7 +81,11 @@ function loadPlugin(pluginName: String, { reporter, config, inputSrc, fileName }
   }
 
   if (!Array.isArray(plugins)) {
-    console.warn(chalk.yellow(`[solhint] Warning: Plugin solhint-plugin-${pluginName} doesn't export an array of rules. Ignoring it.`));
+    console.warn(
+      chalk.yellow(
+        `[solhint] Warning: Plugin solhint-plugin-${pluginName} doesn't export an array of rules. Ignoring it.`,
+      ),
+    );
     return [];
   }
 

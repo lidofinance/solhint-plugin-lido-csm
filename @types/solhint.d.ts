@@ -34,5 +34,15 @@ declare module 'solhint/test/common/contract-builder' {
   const stateDef: (count: number) => string;
   const constantDef: (count: number) => string;
   const repeatLines: (line: string, count: number) => string;
-  export { contractWith, libraryWith, funcWith, modifierWith, multiLine, contractWithPrettier, stateDef, constantDef, repeatLines };
+  export {
+    contractWith,
+    libraryWith,
+    funcWith,
+    modifierWith,
+    multiLine,
+    contractWithPrettier,
+    stateDef,
+    constantDef,
+    repeatLines,
+  };
 }
