@@ -1,26 +1,25 @@
-# Lido Community Staking Module Solhint Plugin
+# Lido Community Staking Module solhint Plugin
 
-[![image](https://img.shields.io/npm/v/solhint-plugin-lido-csm.svg?style=flat-square)](https://www.npmjs.org/package/solhint-plugin-lido-csm)
 ![Tests](https://github.com/lidofinance/solhint-plugin-lido-csm/actions/workflows/unit-tests.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/lidofinance/solhint-plugin-lido-csm/blob/main/LICENSE)
 
 ## Overview
 
-This custom Solhint Plugin aims to contain all the Solidity best practices and style guide of Community Staking
+This custom solhint Plugin aims to contain all the Solidity best practices and style guide of Community Staking
 Module team.
 
 ## Setup
 
-[Setup Solhint](TODO) in your Solidity project if you haven't already. Then run:
+[Setup solhint](https://protofire.github.io/solhint/#installation) in your Solidity project if you haven't already. Then run:
 
 ```sh
-yarn add -D solhint-plugin-lido-csm
+yarn add -D https://github.com/lidofinance/solhint-plugin-lido-csm#main
 ```
 
 or
 
 ```sh
-npm install --save-dev solhint-plugin-lido-csm
+npm install --save-dev https://github.com/lidofinance/solhint-plugin-lido-csm#main
 ```
 
 Finally, inside your `.solhint.json` configuration file, add:
