@@ -1,6 +1,6 @@
 {
   "name": "solhint-plugin-lido-csm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A custom Solhint plugin to enforce style guide of CSM team",
   "keywords": [
     "solhint",
