@@ -4,6 +4,7 @@ import { InterfaceMemberOrderChecker } from './interface-member-order';
 import { InterfaceStartsWithIChecker } from './interface-starts-with-i';
 import { StructNameCamelCaseChecker } from './struct-name-camelcase';
 import { VarsWithUnderscoreChecker } from './vars-with-underscore';
+import { LicenseChecker } from './license-checker';
 
 const rules: typeof Rule[] = [
   EnumNameCamelCaseChecker,
@@ -12,6 +13,7 @@ const rules: typeof Rule[] = [
   VarsWithUnderscoreChecker,
   StructNameCamelCaseChecker,
   ContractOrderingChecker,
+  LicenseChecker,
 ];
 
 export = rules;
