@@ -26,7 +26,9 @@ describe('Linter - vars-with-underscore', () => {
   });
 
   it('should not raise an error if a block variable starts with an underscore because of shadowing', () => {
-    const code = contractWith(multiLine('bool public myVar;', 'function foo() public { uint _myVar; }'));
+    const code = contractWith(
+      multiLine('bool public myVar;', 'function foo() public { uint _myVar; }', 'function bar() public { uint _foo; }'),
+    );
     const report = processStr(code, config);
 
     assert.equal(report.errorCount, 0);
