@@ -1,3 +1,3 @@
 declare class Rule extends BaseChecker {
-  constructor(reporter: any);
+  constructor(reporter: any, config: any, inputStr: string, fileName: string);
 }

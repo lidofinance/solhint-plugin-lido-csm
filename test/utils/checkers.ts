@@ -56,9 +56,9 @@ export function checkers(reporter, configVals, inputSrc, tokens, fileName) {
 }
 
 function coreRules(meta) {
-  const { reporter, config, inputSrc, tokens } = meta;
+  const { reporter, config, inputSrc, tokens, fileName } = meta;
 
-  const wonderlandPluginRules = rules.map((rule) => new rule(reporter));
+  const lidoCSMPluginRules = rules.map((rule) => new rule(reporter, config, inputSrc, fileName));
 
   return [
     ...bestPractises(reporter, config, inputSrc),
@@ -67,7 +67,7 @@ function coreRules(meta) {
     ...naming(reporter, config),
     ...order(reporter, tokens),
     ...security(reporter, config, inputSrc),
-    ...wonderlandPluginRules,
+    ...lidoCSMPluginRules,
   ];
 }
 
