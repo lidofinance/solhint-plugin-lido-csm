@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/0.2.0...0.3.0) (2023-10-27)
+
+
+### Features
+
+* add license checker ([ef9d487](https://github.com/lidofinance/solhint-plugin-lido-csm/commit/ef9d487f24ae158d0d252931d471a302b87292de))
+
+
+
 # [0.2.0](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/v0.1.0...0.2.0) (2023-10-16)
 
 
