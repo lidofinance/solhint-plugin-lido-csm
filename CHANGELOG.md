@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/0.3.0...0.3.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* include functions in shadowing check ([427f0dc](https://github.com/lidofinance/solhint-plugin-lido-csm/commit/427f0dc470bb7c61c8695cb5f0bc82afa4c88a51))
+
+
+
 # [0.3.0](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/0.2.0...0.3.0) (2023-10-27)
 
 
