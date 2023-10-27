@@ -38,6 +38,7 @@ Finally, inside your `.solhint.json` configuration file, add:
 | `interface-starts-with-i` | Interfaces name should start with `I`. Example: `IMyContract`.                   |
 | `struct-name-camelcase`   | Structs name should be in CamelCase.                                             |
 | `vars-with-underscore`    | Set of rules to check underscored variables                                      |
+| `license-checker`         | Checks that SPDX-License-Identifier is included                                  |
 
 ## Credits
 
