@@ -16,9 +16,9 @@ const meta = {
 };
 
 export class VarsWithUnderscoreChecker extends BaseChecker implements Rule {
-  private stateVariables: string[] = [];
-  private arguments: string[] = [];
   private inInterface: boolean = false;
+  private arguments: string[] = [];
+  private globals: string[] = [];
 
   constructor(reporter: Function) {
     super(reporter, ruleId, meta);
@@ -26,14 +26,20 @@ export class VarsWithUnderscoreChecker extends BaseChecker implements Rule {
 
   ContractDefinition(node: any) {
     this.inInterface = node.kind == 'interface';
+    for (const n of node.subNodes) {
+      if (n.type === 'FunctionDefinition') {
+        this.globals.push(n.name);
+      }
+    }
   }
 
   'ContractDefinition:exit'() {
     this.inInterface = false;
+    this.globals = [];
   }
 
   StateVariableDeclaration(node: any) {
-    this.stateVariables.push(...node.variables.map((v: any) => v.name));
+    this.globals.push(...node.variables.map((v: any) => v.name));
   }
 
   FunctionDefinition(node: any) {
@@ -50,7 +56,7 @@ export class VarsWithUnderscoreChecker extends BaseChecker implements Rule {
         continue;
       }
 
-      if (!this.stateVariables.includes(param.name.slice(1))) {
+      if (!this.globals.includes(param.name.slice(1))) {
         this._error(param);
       }
     }
@@ -89,14 +95,14 @@ export class VarsWithUnderscoreChecker extends BaseChecker implements Rule {
       }
     }
 
-    for (const stateVariable of this.stateVariables) {
-      // i.e. underscored state variable
-      if (stateVariable == node.name) {
+    for (const gVar of this.globals) {
+      // i.e. underscored global variable
+      if (gVar == node.name) {
         return;
       }
 
-      // block variable has leading underscore to not shadow state variable
-      if (stateVariable == node.name.slice(1)) {
+      // block variable has leading underscore to not shadow global variable
+      if (gVar == node.name.slice(1)) {
         return;
       }
     }
