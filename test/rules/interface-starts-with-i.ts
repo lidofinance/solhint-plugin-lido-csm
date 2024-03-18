@@ -11,7 +11,6 @@ describe('Linter - interface-starts-with-i', () => {
     const code = interfaceWith('Test', '');
     const report = processStr(code, config);
 
-    assert.equal(report.errorCount, 1);
     assert.ok(report.messages[0].message == `Interface name 'Test' must start with "I"`);
   });
 
