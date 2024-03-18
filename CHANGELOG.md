@@ -1,3 +1,7 @@
+## [0.3.2](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/0.3.1...0.3.2) (2024-03-18)
+
+
+
 ## [0.3.1](https://github.com/lidofinance/solhint-plugin-lido-csm/compare/0.3.0...0.3.1) (2023-10-27)
 
 
