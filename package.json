@@ -19,7 +19,7 @@
     "lint:check": "prettier --check './**'",
     "lint:fix": "sort-package-json && prettier --write './**'",
     "test": "ts-mocha test/rules/*.ts",
-    "prepare": "npm run build; husky install"
+    "prepare": "tsc"
   },
   "lint-staged": {
     "*.{js,md,ts}": "prettier --write './**'",
